@@ -1,8 +1,8 @@
 ﻿#If (MouseIsOver("ahk_exe acad.exe") && WinActive("ahk_exe acad.exe"))
      || (MouseIsOver("ahk_exe Revit.exe") && WinActive("ahk_exe Revit.exe"))
 ; Default behavior of thumb buttons
-XButton1::Esc
-XButton2::Enter
+XButton1::Send {Esc}
+XButton2::Send {Enter}
 
 ; Hold MButton and press thumb buttons for switching between Windows
 ~MButton::Return

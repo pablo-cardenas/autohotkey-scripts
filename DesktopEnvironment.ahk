@@ -5,7 +5,7 @@
 ^#w::Run, "C:\Program Files\qutebrowser\qutebrowser.exe"
 
 ; CapsLock shows an alert when pressed
-CapsLock::
+*CapsLock::
 If !GetKeyState("capslock","T") {
     SetCapsLockState, On
     Progress, B2 W350 H50 ZH0 FS30 WS900 x0 y0 CWFFC7CE CT9C0006, CAPS LOCK ON
@@ -15,10 +15,20 @@ If !GetKeyState("capslock","T") {
 }
 Return
 
-#If MouseIsOver("ahk_class MultitaskingViewFrame") || MouseIsOver("ahk_class Shell_TrayWnd", "MSTaskListWClass1")
+#If WinActive("ahk_class MultitaskingViewFrame")
+    || MouseIsOver("ahk_class Shell_TrayWnd", "MSTaskListWClass1")
 ; Cycle through virtual desktops
-WheelUp::Send ^#{Right}
-WheelDown::Send ^#{Left}
+WheelUp::Send ^#{Left}
+WheelDown::Send ^#{Right}
+
+#If WinActive("ahk_class MultitaskingViewFrame")
+XButton1::Send {Right}
+XButton2::Send {Left}
+MButton::Send {Enter}
+
+#If MouseIsOver("ahk_class Shell_TrayWnd", "MSTaskListWClass1")
+XButton1::Send !+{Esc}
+XButton2::Send !{Esc}
 MButton::Send #{Tab}
 
 #If MouseIsOver("ahk_class Shell_TrayWnd", "ToolbarWindow323")
