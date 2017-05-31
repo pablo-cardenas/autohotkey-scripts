@@ -1,8 +1,13 @@
 ﻿; Launch Double Commander
-^#e::Run, "C:\Program Files\Double Commander\doublecmd.exe"
+#+e::Run, "C:\Program Files\Double Commander\doublecmd.exe"
 
 ; Launch Qutebrowser
-^#w::Run, "C:\Program Files\qutebrowser\qutebrowser.exe"
+#+w::Run, "C:\Program Files\qutebrowser\qutebrowser.exe"
+
+; Like i3wm
+#+q::Send !{F4}
+#j::Send ^#{Left}
+#ñ::Send ^#{Right}
 
 ; CapsLock shows an alert when pressed
 *CapsLock::
@@ -13,6 +18,10 @@ If !GetKeyState("capslock","T") {
     SetCapsLockState, Off
     Progress, off
 }
+Return
+
++Ins::
+clipboard = %clipboard%
 Return
 
 #If WinActive("ahk_class MultitaskingViewFrame")

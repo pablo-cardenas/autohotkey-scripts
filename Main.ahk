@@ -7,5 +7,8 @@ SetTitleMatchMode, RegEx
 
 #include DesktopEnvironment.ahk
 #include Autodesk.ahk
+#include SumatraPDF.ahk
+#include CSI.ahk
+#include MSOffice.ahk
 #include Qutebrowser.ahk
 #include Common.ahk
