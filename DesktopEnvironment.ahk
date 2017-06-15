@@ -25,7 +25,7 @@ clipboard = %clipboard%
 Return
 
 #If WinActive("ahk_class MultitaskingViewFrame")
-    || MouseIsOver("ahk_class Shell_TrayWnd", "MSTaskListWClass1")
+    || MouseIsOver("ahk_class Shell_.*", "MSTaskListWClass1")
 ; Cycle through virtual desktops
 WheelUp::Send ^#{Left}
 WheelDown::Send ^#{Right}
@@ -35,12 +35,12 @@ XButton1::Send {Right}
 XButton2::Send {Left}
 MButton::Send {Enter}
 
-#If MouseIsOver("ahk_class Shell_TrayWnd", "MSTaskListWClass1")
+#If MouseIsOver("ahk_class Shell_.*", "MSTaskListWClass1")
 XButton1::Send !+{Esc}
 XButton2::Send !{Esc}
 MButton::Send #{Tab}
 
-#If MouseIsOver("ahk_class Shell_TrayWnd", "ToolbarWindow323")
+#If MouseIsOver("ahk_class Shell_.*", "ToolbarWindow323")
 ; Change volume by scrolling
 WheelUp::Send {Volume_Up}
 WheelDown::Send {Volume_Down}
